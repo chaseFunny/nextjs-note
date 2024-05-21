@@ -28,8 +28,7 @@ bun dev
 - [学习 Next.js](https://nextjs.org/learn) - 互动式的 Next.js 教程。
 
 关注我的微信公公众号，每周更新前端动态：
-<img alt="coderxing.png" src="https://raw.githubusercontent.com/chaseFunny/imageSource/main/blog/coderxing.png" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
-![扫码_搜索联合传播样式-标准色版](https://raw.githubusercontent.com/chaseFunny/imageSource/main/blog/coderxing.png)
+<img alt="coderxing.png" src="https://raw.githubusercontent.com/chaseFunny/imageSource/main/blog/coderxing.png" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI" width="200" >
 
 你也可以查看[Next.js 的 GitHub 仓库](https://github.com/vercel/next.js/) - 欢迎提供反馈和贡献！
 
