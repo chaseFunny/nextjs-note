@@ -1,3 +1,4 @@
+import { NotesType } from "@/components/Sidebar";
 import Redis from "ioredis";
 
 const redis = new Redis();
@@ -11,12 +12,12 @@ const initialData: Record<string, string> = {
  * 获取所有笔记的 getAllNotes，这里我们做了一个特殊处理，如果为空，就插入 3 条事先定义的笔记数据
  * @returns 所有笔记
  */
-export async function getAllNotes(): Promise<Record<string, string>> {
+export async function getAllNotes(): Promise<NotesType> {
   const data = await redis.hgetall("notes");
   if (Object.keys(data).length === 0) {
     await redis.hset("notes", initialData);
   }
-  return await redis.hgetall("notes");
+  return (await redis.hgetall("notes")) as unknown as NotesType;
 }
 /**
  * 异步添加一个笔记。
