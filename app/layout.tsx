@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="cn">
       <body className={inter.className}>
         <div className="container max-w-7xl flex py-12">
-          <Sidebar />
+          <div className="w-[200px]">
+            <Sidebar />
+          </div>
           <div className="main flex-auto">
             <section className="col note-viewer">{children}</section>
           </div>

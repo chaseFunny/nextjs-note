@@ -1,15 +1,14 @@
-import { getAllNotes } from "@/lib/redis";
+import NoteListSkeleton from "./NoteListSkeleton";
 import Image from "next/image";
 import Link from "next/link";
 import NoteList from "./NoteList";
+import { Suspense } from "react";
 export interface NotesType {
   notes: Record<string, string>;
 }
-interface SidebarProps {}
-const Sidebar = async () => {
-  const notes: NotesType = await getAllNotes();
+const Sidebar = () => {
   return (
-    <nav className="w-56 bg-violet-200 rounded-md px-3 py-3 h-[90vh] overflow-y-auto">
+    <nav className="w-[200px] bg-violet-200 rounded-md px-3 py-3 h-[90vh] overflow-y-auto">
       <Link href={"/"} className="link--unstyled">
         <section className="sidebar-header flex justify-center items-center">
           <Image
@@ -18,7 +17,6 @@ const Sidebar = async () => {
             width={32}
             height={32}
             alt="logo"
-            role="presentation"
           />
           <strong className="text-lg">阿星的笔记</strong>
         </section>
@@ -26,7 +24,9 @@ const Sidebar = async () => {
       <section className="sidebar-menu py-2" role="menubar">
         {/* SideSearchField */}
       </section>
-      <NoteList notes={notes} />
+      <Suspense fallback={<NoteListSkeleton />}>
+        <NoteList />
+      </Suspense>
     </nav>
   );
 };
