@@ -53,7 +53,6 @@ export async function getNote(
   // 将获取的笔记数据从JSON格式解析为对象并返回
   return JSON.parse(noteData);
 }
-
 /**
  * 异步删除指定的笔记
  * @param uuid 笔记的唯一标识符，类型为字符串
