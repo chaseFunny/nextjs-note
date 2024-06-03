@@ -24,6 +24,7 @@ const NotePreview: FC<{
       <div
         className="text-with-markdown"
         dangerouslySetInnerHTML={{
+          // @ts-ignore
           __html: sanitizeHtml(marked(children || ""), {
             allowedTags,
             allowedAttributes,

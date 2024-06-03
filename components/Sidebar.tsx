@@ -1,10 +1,10 @@
-import NoteListSkeleton from "./NoteListSkeleton";
 import Image from "next/image";
 import Link from "next/link";
-import NoteList from "./NoteList";
 import { Suspense } from "react";
-import SidebarSearchField from "./SidebarSearchField";
 import NoteEditBtn from "./NoteEditBtn";
+import NoteList from "./NoteList";
+import NoteListSkeleton from "./NoteListSkeleton";
+import SidebarSearchField from "./SidebarSearchField";
 export interface NotesType {
   notes: Record<string, string>;
 }

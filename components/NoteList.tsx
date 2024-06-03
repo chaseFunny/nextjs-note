@@ -1,6 +1,6 @@
 import { getAllNotes } from "@/lib/redis";
 import { sleep } from "@/lib/utils";
-import Link from "next/link";
+import NoteHeader from "./NoteHeader";
 import { NotesType } from "./Sidebar";
 import SidebarNoteListFilter from "./SidebarNoteListFilter";
 
@@ -20,13 +20,9 @@ export default async function NoteList() {
           noteId,
           note: noteData,
           header: (
-            <Link href={`/note/${noteId}`}>
-              <li key={noteId} className="bg-purple-400 rounded-md  ">
-                <header className="sidebar-note-header flex flex-col">
-                  <strong className="mb-2">{noteData.title}</strong>
-                </header>
-              </li>
-            </Link>
+            <div key={noteId} className="bg-purple-400 rounded-md">
+              <NoteHeader noteId={noteId} title={noteData.title} />
+            </div>
           ),
         };
       })}
