@@ -1,22 +1,17 @@
 "use client";
 import { deleteNote, saveNote } from "@/app/actions";
 
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import DeleteBtn from "@/components/DeleteBtn";
+import SaveBtn from "@/components/SaveBtn";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type FC, memo, useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import NotePreview from "./NotePreview";
-import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 const initialState: any = {
   message: null,
@@ -50,33 +45,10 @@ const NoteEditor: FC<{
       console.log(saveState.errors);
     }
   }, [saveState]);
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
+
   return (
     <div className="NoteEditor">
-      <Form {...form}>
-        <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
-          <FormField
-            // control={form.control}
-            name="username"
-            render={({ field }: any) => (
-              <FormItem>
-                <FormLabel>Username</FormLabel>
-                <FormControl>
-                  <Input placeholder="shadcn" {...field} />
-                </FormControl>
-                <FormDescription>请输入</FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit">提交</Button>
-        </form>
-      </Form>
-      {/* <form className="note-editor-form" autoComplete="off">
+      <form className="note-editor-form space-y-8" autoComplete="off">
         <input type="hidden" name="noteId" value={noteId ?? ""} />
         <div className="note-editor-menu" role="menubar">
           <SaveBtn formAction={saveFormAction} />
@@ -86,10 +58,8 @@ const NoteEditor: FC<{
           {saveState?.message}
           {saveState.errors && saveState.errors[0].message}
         </div>
-        <label className="offscreen" htmlFor="note-title-input">
-          Enter a title for your note
-        </label>
-        <input
+        <Label htmlFor="note-title-input">请输入标题</Label>
+        <Input
           id="note-title-input"
           type="text"
           name="title"
@@ -98,22 +68,30 @@ const NoteEditor: FC<{
             setTitle(e.target.value);
           }}
         />
-        <label className="offscreen" htmlFor="note-body-input">
-          Enter the body for your note
-        </label>
-        <textarea
+        <Label htmlFor="note-body-input">请输入内容</Label>
+        <Textarea
+          placeholder="请输入内容"
           name="body"
           value={body ?? ""}
           id="note-body-input"
           onChange={(e) => setBody(e.target.value)}
         />
-      </form> */}
+      </form>
       <div className="note-editor-preview">
-        <div className="label label--preview" role="status">
-          Preview
-        </div>
-        <h1 className="note-title">{title}</h1>
-        <NotePreview>{body}</NotePreview>
+        <Card>
+          <CardHeader>
+            <CardTitle>内容预览 - 标题：{title}</CardTitle>
+            {/* <CardDescription>
+              {dayjs().format("YYYY-MM-DD HH:mm:ss")}
+            </CardDescription> */}
+          </CardHeader>
+          <CardContent>
+            <NotePreview>{body}</NotePreview>
+          </CardContent>
+          {/* <CardFooter>
+            <p>{dayjs().format("YYYY-MM-DD HH:mm:ss")}</p>
+          </CardFooter> */}
+        </Card>
       </div>
     </div>
   );

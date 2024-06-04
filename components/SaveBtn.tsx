@@ -5,7 +5,7 @@ const SaveBtn: FC<{ formAction?: (v: any) => void }> = ({ formAction }) => {
   const { pending } = useFormStatus();
   return (
     <button
-      className="note-save-btn"
+      className={`note-save-btn ${pending ? "bg-red-600" : ""}`}
       formAction={formAction}
       type="submit"
       disabled={pending}

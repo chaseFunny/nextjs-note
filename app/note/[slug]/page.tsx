@@ -1,3 +1,4 @@
+import NoteEditBtn from "@/components/NoteEditBtn";
 import NotePreview from "@/components/NotePreview";
 import { getNote } from "@/lib/redis";
 import dayjs from "dayjs";
@@ -11,10 +12,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <div className="px-10 py-10">
       <h1 className="text-3xl">{notes.title}</h1>
-      {/* <div
-        className="my-8"
-        dangerouslySetInnerHTML={{ __html: notes.content }}
-      /> */}
+      {params.slug && (
+        <div className="flex justify-end items-center w-full">
+          <NoteEditBtn noteId={params.slug} />
+        </div>
+      )}
       <NotePreview>{notes.content}</NotePreview>
       <div className="float-end">
         {dayjs(notes.updateTime).format("YYYY-MM-DD HH:mm:ss")}
