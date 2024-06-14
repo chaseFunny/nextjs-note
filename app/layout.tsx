@@ -1,7 +1,8 @@
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="cn">
       <body className={inter.className}>
+        <Header />
         <div className="container max-w-7xl flex py-12">
           <div className="w-[200px]">
             <Sidebar />
