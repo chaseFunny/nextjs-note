@@ -1,6 +1,7 @@
 import NoteEditBtn from "@/components/NoteEditBtn";
 import NotePreview from "@/components/NotePreview";
-import { getNote } from "@/lib/redis";
+import { getNote } from "@/lib/strapi";
+import { extractAndConcatenateText } from "@/lib/utils";
 import dayjs from "dayjs";
 
 export const revalidate = 60;
@@ -17,7 +18,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <NoteEditBtn noteId={params.slug} />
         </div>
       )}
-      <NotePreview>{notes.content}</NotePreview>
+      <NotePreview>{extractAndConcatenateText(notes.content)}</NotePreview>
       <div className="float-end">
         {dayjs(notes.updateTime).format("YYYY-MM-DD HH:mm:ss")}
       </div>

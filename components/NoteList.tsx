@@ -1,4 +1,4 @@
-import { getAllNotes } from "@/lib/redis";
+import { getAllNotes } from "@/lib/strapi";
 import { sleep } from "@/lib/utils";
 import NoteHeader from "./NoteHeader";
 import { NotesType } from "./Sidebar";

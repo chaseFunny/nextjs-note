@@ -1,4 +1,5 @@
 "use client";
+import { extractAndConcatenateText } from "@/lib/utils";
 import { useSearchParams } from "next/navigation";
 import { type FC, memo } from "react";
 import NoteListItemContent from "./NoteListItemContent";
@@ -21,6 +22,8 @@ const SidebarNoteListFilter: FC<{ notes: noteItemType[] }> = ({ notes }) => {
             (searchText &&
               note.title.toLowerCase().includes(searchText.toLowerCase()))
           ) {
+            console.log(note, noteItem, "note");
+
             return (
               <li key={noteId}>
                 <NoteListItemContent
@@ -28,7 +31,10 @@ const SidebarNoteListFilter: FC<{ notes: noteItemType[] }> = ({ notes }) => {
                   id={noteId}
                   expandedChildren={
                     <p className="sidebar-note-excerpt">
-                      {note.content.substring(0, 20) || <i>(No content)</i>}
+                      {extractAndConcatenateText(note.content)?.substring(
+                        0,
+                        20
+                      ) || <i>(No content)</i>}
                     </p>
                   }
                 >

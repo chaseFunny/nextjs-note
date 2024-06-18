@@ -10,6 +10,8 @@ interface NoteListItemType {
   };
 }
 export default function NoteListItem({ n }: { n: NoteListItemType }) {
+  console.log(n, "nnn");
+
   const { noteId, note } = n;
   const { title, updateTime } = note;
   return (

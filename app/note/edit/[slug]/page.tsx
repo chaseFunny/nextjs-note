@@ -1,6 +1,6 @@
 import NoteEditor from "@/components/NoteEditor";
-import { getNote } from "@/lib/redis";
-import { sleep } from "@/lib/utils";
+import { getNote } from "@/lib/strapi";
+import { extractAndConcatenateText, sleep } from "@/lib/utils";
 
 export default async function EditPage({
   params,
@@ -24,7 +24,7 @@ export default async function EditPage({
     <NoteEditor
       noteId={noteId}
       initialTitle={note.title}
-      initialBody={note.content}
+      initialBody={extractAndConcatenateText(note.content)}
     />
   );
 }

@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 // import { updateNote, delNote } from "@/lib/prisma";
 // import { addNote } from "@/lib/prisma";
-import { addNote, delNote, updateNote } from "@/lib/redis";
+import { addNote, delNote, updateNote } from "@/lib/strapi";
 import dayjs from "dayjs";
 import { mkdir, stat, writeFile } from "fs/promises";
 import mime from "mime";
