@@ -1,4 +1,4 @@
-import { getAllNotes } from "@/lib/strapi";
+import { getAllNotes } from "@/lib/prisma";
 import { sleep } from "@/lib/utils";
 import NoteHeader from "./NoteHeader";
 import { NotesType } from "./Sidebar";

@@ -4,6 +4,9 @@ dependencies:
   '@hookform/resolvers':
     specifier: ^3.4.2
     version: 3.4.2(react-hook-form@7.51.5)
+  '@prisma/client':
+    specifier: 5.15.1
+    version: 5.15.1(prisma@5.15.1)
   '@radix-ui/react-label':
     specifier: ^2.0.2
     version: 2.0.2(@types/react-dom@18.2.17)(@types/react@18.2.38)(react-dom@18.3.1)(react@18.3.1)
@@ -105,6 +108,9 @@ devDependencies:
   postcss:
     specifier: ^8
     version: 8.0.0
+  prisma:
+    specifier: ^5.15.1
+    version: 5.15.1
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
@@ -364,6 +370,46 @@ packages:
     engines: {node: '>=14'}
     requiresBuild: true
     optional: true
+
+  /@prisma/client@5.15.1(prisma@5.15.1):
+    resolution: {integrity: sha512-fmZRGmsUJ9+VwC/AvfP/PwdpD0xAEyPvNsD9/B3+GYpETq9VejVRT3PiqNvl76q1uYYzNZeo8u/LmzzTetHSEg==}
+    engines: {node: '>=16.13'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      prisma: 5.15.1
+    dev: false
+
+  /@prisma/debug@5.15.1:
+    resolution: {integrity: sha512-NQjdEplhXEcPvf84ghxExC+LD+iTimbg3sZvA3BhybVQIocBEBxFf9GTHhmRVPmjrWoBaYJBVgEEBXZT27JTbQ==}
+
+  /@prisma/engines-version@5.15.1-1.5675a3182f972f1a8f31d16eee6abf4fd54910e3:
+    resolution: {integrity: sha512-7csphKGCG6n/cN1MkT1mJvQ78Ir18IknlYZ8eyEoLKdQBb0HscR/6TyPmzqrMA7Rz01K1KeXqctwAqxtA/lKQg==}
+
+  /@prisma/engines@5.15.1:
+    resolution: {integrity: sha512-1iTRxJEFvpBpEWf2bYiMG6LBBQhX7X+GA5piH+tmPWgc/v+/ElxQf2kjQxby8AErmZqtZkdoKJ7FSRjNjBPE9Q==}
+    requiresBuild: true
+    dependencies:
+      '@prisma/debug': 5.15.1
+      '@prisma/engines-version': 5.15.1-1.5675a3182f972f1a8f31d16eee6abf4fd54910e3
+      '@prisma/fetch-engine': 5.15.1
+      '@prisma/get-platform': 5.15.1
+
+  /@prisma/fetch-engine@5.15.1:
+    resolution: {integrity: sha512-mj0wfsJ+mAdDp1ynT2JKxAXa+CoYMT267qF7g2Uv+oaVTI2CMfGWouMARht8T2QLTgl+gpXSFTwIYbcR+oWEtw==}
+    dependencies:
+      '@prisma/debug': 5.15.1
+      '@prisma/engines-version': 5.15.1-1.5675a3182f972f1a8f31d16eee6abf4fd54910e3
+      '@prisma/get-platform': 5.15.1
+
+  /@prisma/get-platform@5.15.1:
+    resolution: {integrity: sha512-oFccp7bYys+ZYkmtYzjR+0cRrGKvSuF+h5QhSkyEsYQ9kzJzQRvuWt2SiHRPt8xOQ4MTmujM+bP5uOexnnAHdQ==}
+    dependencies:
+      '@prisma/debug': 5.15.1
 
   /@radix-ui/react-compose-refs@1.0.1(@types/react@18.2.38)(react@18.3.1):
     resolution: {integrity: sha512-fDSBgd44FKHa1FRMU59qBMPFcl2PZE+2nmqunj+BWFyYYjnhIDWL2ItDs3rrbJDQOtzt5nIebLCQc4QRfz6LJw==}
@@ -2796,6 +2842,14 @@ packages:
   /pretty-format@3.8.0:
     resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
     dev: false
+
+  /prisma@5.15.1:
+    resolution: {integrity: sha512-pYsUVpTlYvZ6mWvZKDv9rKdUa7tlfSUJY1CVtgb8Had1pHbIm9fr1MBASccr5XnSuCUrjnvKhWNwgSYy6aCajA==}
+    engines: {node: '>=16.13'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 5.15.1
 
   /progress@2.0.3:
     resolution: {integrity: sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==}

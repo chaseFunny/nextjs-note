@@ -1,6 +1,6 @@
 import NoteEditBtn from "@/components/NoteEditBtn";
 import NotePreview from "@/components/NotePreview";
-import { getNote } from "@/lib/strapi";
+import { getNote } from "@/lib/prisma";
 import { extractAndConcatenateText } from "@/lib/utils";
 import dayjs from "dayjs";
 
